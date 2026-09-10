@@ -1,0 +1,81 @@
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: var(--color-text-muted);
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.alert-card {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  border-left: 4px solid transparent;
+}
+
+.alert-card.severity-high {
+  border-left-color: var(--color-danger);
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.05), transparent);
+}
+
+.alert-card.severity-medium {
+  border-left-color: var(--color-warning);
+  background: linear-gradient(to right, rgba(245, 158, 11, 0.05), transparent);
+}
+
+.alert-card.severity-low {
+  border-left-color: var(--color-info);
+}
+
+.alert-icon {
+  padding: 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.severity-high .alert-icon { color: var(--color-danger); }
+.severity-medium .alert-icon { color: var(--color-warning); }
+.severity-low .alert-icon { color: var(--color-info); }
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.alert-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.alert-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.alert-content p {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
