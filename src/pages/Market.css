@@ -451,8 +451,33 @@
 }
 
 @media (max-width: 768px) {
+  .market-page {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .district-chips-wrapper,
+  .crop-filter-scroll {
+    flex-wrap: wrap;
+  }
+
+  .ai-mandi-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1rem;
+  }
+
   .controls-bar-card {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .search-and-sort {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mandi-cards-grid {
+    grid-template-columns: 1fr;
   }
 }
