@@ -20,7 +20,6 @@ import {
   AlertTriangle,
   TrendingUp,
   Landmark,
-  MapPin,
   Plus,
   ArrowRight,
   ChevronRight,
@@ -173,6 +172,20 @@ export const Dashboard = () => {
           <span>{t('dashboard.agriculturalMotto', 'Better information. Better decisions. Healthier crops.')}</span>
         </div>
       </section>
+
+      {/* ERROR FALLBACK BANNER */}
+      {(dataError || weatherError) && (
+        <div className="dash-error-banner glass-panel" style={{ margin: '0 0 1.5rem 0', padding: '1rem 1.25rem', borderRadius: '12px', background: '#ffebee', border: '1px solid #ffcdd2', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#c62828' }}>
+            <AlertTriangle size={20} />
+            <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>{dataError || weatherError}</span>
+          </div>
+          <button onClick={loadDashboardData} className="btn-secondary-agri" style={{ padding: '0.4rem 0.9rem', fontSize: '0.85rem' }}>
+            <RefreshCw size={14} style={{ marginRight: '6px' }} />
+            {t('dashboard.retry', 'Retry')}
+          </button>
+        </div>
+      )}
 
       {/* 3. FARM OVERVIEW STATISTICS (5 CARDS) */}
       <section className="dash-stats-grid">
@@ -493,8 +506,8 @@ export const Dashboard = () => {
             {topSchemes.map(s => (
               <div key={s.id} className="scheme-card-item">
                 <div>
-                  <div className="scheme-name">{s.scheme_name}</div>
-                  <div className="scheme-dept">{s.department}</div>
+                  <div className="scheme-name">{s.title}</div>
+                  <div className="scheme-dept">{s.category} • {s.government_level}</div>
                 </div>
                 <span className="eligible-tag">{t('dashboard.eligibleBadge', 'Eligible')}</span>
               </div>

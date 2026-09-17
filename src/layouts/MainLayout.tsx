@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import { Outlet, Navigate, useLocation } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
 import { NotificationBell } from '../components/NotificationBell';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { useAuth } from '../context/AuthContext';
-import { Sprout } from 'lucide-react';
+import { Sprout, Menu, X } from 'lucide-react';
 import './MainLayout.css';
 
 export const MainLayout = () => {
   const { user, loading } = useAuth();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   if (loading) {
     return (
@@ -29,10 +31,21 @@ export const MainLayout = () => {
 
   return (
     <div className="main-layout">
-      <Sidebar />
+      <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       <div className="main-viewport">
         <header className="topbar glass-panel">
           <div className="topbar-left">
+            <button 
+              className="mobile-menu-toggle-btn" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileMenuOpen ? <X size={22} color="#1b5e20" /> : <Menu size={22} color="#1b5e20" />}
+            </button>
+            <div className="mobile-brand-title">
+              <Sprout size={20} color="#1b5e20" />
+              <span>AgriRakshak</span>
+            </div>
           </div>
           <div className="topbar-right">
             <LanguageSelector />
