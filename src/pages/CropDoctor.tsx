@@ -14,7 +14,6 @@ import {
   Wind, 
   Send, 
   History, 
-  Languages, 
   Sparkles 
 } from 'lucide-react';
 import { analyzeCropImage, submitExpertReview } from '../services/cropDoctorService';
@@ -27,7 +26,7 @@ const GROWTH_STAGES: GrowthStage[] = ['Seedling', 'Vegetative', 'Flowering', 'Fr
 
 export const CropDoctor = () => {
   const navigate = useNavigate();
-  const { language, setLanguage, t: globalT } = useLanguage();
+  const { t: globalT } = useLanguage();
 
   const cdT = new Proxy({}, {
     get: (_target, prop: string) => globalT(`cropDoctor.${prop}`)
@@ -178,13 +177,6 @@ export const CropDoctor = () => {
         </div>
 
         <div className="cd-header-actions">
-          <div className="lang-switcher">
-            <Languages size={18} />
-            <button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button>
-            <button className={language === 'mr' ? 'active' : ''} onClick={() => setLanguage('mr')}>मराठी</button>
-            <button className={language === 'hi' ? 'active' : ''} onClick={() => setLanguage('hi')}>हिन्दी</button>
-          </div>
-
           <button className="cd-history-btn" onClick={() => navigate('/crop-doctor/history')}>
             <History size={18} />
             <span>{t.btnHistory}</span>
