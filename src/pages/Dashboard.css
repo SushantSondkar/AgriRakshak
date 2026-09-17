@@ -751,7 +751,8 @@
   .dash-hero-title {
     font-size: 1.45rem;
   }
-  
+}
+
 /* SKELETON LOADING & ERROR STYLES */
 @keyframes skeletonPulse {
   0% { opacity: 0.5; }
