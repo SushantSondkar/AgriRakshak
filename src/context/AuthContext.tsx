@@ -41,11 +41,11 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const DEMO_FARMER_USER: UserProfile = {
   id: 'demo-farmer-id-123',
-  email: 'ramesh.patil@agrirakshak.in',
-  name: 'Ramesh Patil',
-  phone: '9876543210',
+  email: 'sushant.sondkar@agrirakshak.in',
+  name: 'Sushant Sondkar',
+  phone: '9552735397',
   role: 'Farmer',
-  district: 'Kopargaon',
+  district: 'Ahmednagar',
   state: 'Maharashtra',
 };
 
@@ -135,13 +135,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const storedUser = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
       if (storedUser) {
         try {
-          setUser(JSON.parse(storedUser));
+          const parsed = JSON.parse(storedUser);
+          if (parsed.name === 'Ramesh Patil') {
+            setUser(DEMO_FARMER_USER);
+            localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(DEMO_FARMER_USER));
+          } else {
+            setUser(parsed);
+          }
         } catch {
           setUser(DEMO_FARMER_USER);
         }
       } else {
         // Default demo login for instant review
         setUser(DEMO_FARMER_USER);
+        localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(DEMO_FARMER_USER));
       }
       setLoading(false);
     }

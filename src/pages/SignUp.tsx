@@ -46,7 +46,7 @@ export const SignUp = () => {
         district,
         state: stateName,
       });
-      navigate('/');
+      navigate('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Registration failed. Please try again.');
     } finally {
@@ -100,7 +100,7 @@ export const SignUp = () => {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Ramesh Patil"
+                  placeholder="e.g. Sushant Sondkar"
                   required
                 />
               </div>
@@ -114,7 +114,7 @@ export const SignUp = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ramesh@gmail.com"
+                  placeholder="sushant@gmail.com"
                   required
                 />
               </div>

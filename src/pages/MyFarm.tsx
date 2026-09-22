@@ -103,7 +103,7 @@ export const MyFarm = () => {
                   type="text" 
                   value={profile.farmerName} 
                   onChange={e => handleChange('farmerName', e.target.value)}
-                  placeholder="e.g. Ramesh Patil"
+                  placeholder="e.g. Sushant Sondkar"
                   required
                 />
               </div>

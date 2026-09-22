@@ -62,8 +62,8 @@ export interface WaterIntelligenceData {
 }
 
 export const DEFAULT_FARM_PROFILE: FarmProfileData = {
-  farmerName: 'Ramesh Patil',
-  location: 'Kopargaon',
+  farmerName: 'Sushant Sondkar',
+  location: 'Kopargaon, Ahmednagar',
   district: 'Nashik',
   landArea: 5.5,
   currentCrop: 'Soybean',
@@ -79,7 +79,15 @@ const STORAGE_KEY = 'agrirakshak_farm_profile_v1';
 export const getSavedFarmProfile = (): FarmProfileData => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.farmerName === 'Ramesh Patil') {
+        parsed.farmerName = 'Sushant Sondkar';
+        parsed.location = 'Kopargaon, Ahmednagar';
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+      }
+      return parsed;
+    }
   } catch (e) {
     console.error('Error reading farm profile from localStorage', e);
   }

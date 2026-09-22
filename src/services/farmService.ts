@@ -1,7 +1,7 @@
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 import type { Farm, FarmCrop } from '../types/farm';
 
-// Realistic fallback farms for Ramesh Patil in Kopargaon
+// Realistic fallback farms for Sushant Sondkar in Kopargaon
 const INITIAL_DEMO_FARMS: Farm[] = [
   {
     id: 'farm-1',

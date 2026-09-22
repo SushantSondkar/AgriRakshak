@@ -396,7 +396,7 @@ export const hi: typeof en = {
     hidePassword: 'पासवर्ड छुपाएं',
     btnSignIn: 'साइन इन करें',
     quickDemoLogin: 'त्वरित डेमो लॉगिन:',
-    loginAsFarmer: 'किसान के रूप में लॉगिन (रमेश पाटिल)',
+    loginAsFarmer: 'किसान के रूप में लॉगिन (सुशांत सोंडकर)',
     loginAsExpert: 'कृषि विशेषज्ञ के रूप में लॉगिन (डॉ. अनिता)',
     noAccountPrompt: 'खाता नहीं है?',
     createAccountLink: 'नया खाता बनाएं',

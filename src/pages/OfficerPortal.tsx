@@ -30,9 +30,9 @@ interface OfficerCase {
 const INITIAL_CASES: OfficerCase[] = [
   {
     id: 'CASE-1082',
-    farmerName: 'Ramesh Patil',
-    phone: '+91 98220 12345',
-    district: 'Nashik',
+    farmerName: 'Sushant Sondkar',
+    phone: '+91 95527 35397',
+    district: 'Ahmednagar',
     taluka: 'Kopargaon',
     crop: 'Soybean',
     problemTitle: 'Yellow Mosaic Virus Spread & Severe Leaf Curling',
@@ -81,8 +81,8 @@ export const OfficerPortal = () => {
   const [cases, setCases] = useState<OfficerCase[]>(INITIAL_CASES);
   
   // Submit Form States
-  const [farmerName, setFarmerName] = useState(user?.name || 'Ramesh Patil');
-  const [district, setDistrict] = useState(user?.district || 'Nashik');
+  const [farmerName, setFarmerName] = useState(user?.name || 'Sushant Sondkar');
+  const [district, setDistrict] = useState(user?.district || 'Ahmednagar');
   const [taluka, setTaluka] = useState('Kopargaon');
   const [crop, setCrop] = useState('Soybean');
   const [problemTitle, setProblemTitle] = useState('');

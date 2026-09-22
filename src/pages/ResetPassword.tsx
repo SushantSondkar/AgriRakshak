@@ -36,7 +36,7 @@ export const ResetPassword = () => {
       if (res.success) {
         setMessage('Password updated successfully! Redirecting to dashboard...');
         setTimeout(() => {
-          navigate('/');
+          navigate('/dashboard');
         }, 2000);
       } else {
         setError(res.message);

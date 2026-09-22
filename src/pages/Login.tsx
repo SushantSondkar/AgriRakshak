@@ -7,7 +7,7 @@ import './Login.css';
 
 export const Login = () => {
   const { t } = useLanguage();
-  const [email, setEmail] = useState('ramesh.patil@agrirakshak.in');
+  const [email, setEmail] = useState('sushant.sondkar@agrirakshak.in');
   const [password, setPassword] = useState('farmer123');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -17,7 +17,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/dashboard';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

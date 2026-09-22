@@ -397,7 +397,7 @@ export const en = {
     hidePassword: 'Hide password',
     btnSignIn: 'Sign In to AgriRakshak',
     quickDemoLogin: 'Quick Demo Login:',
-    loginAsFarmer: 'Log in as Farmer (Ramesh)',
+    loginAsFarmer: 'Log in as Farmer (Sushant)',
     loginAsExpert: 'Log in as Expert (Dr. Anita)',
     noAccountPrompt: 'Don\'t have an account?',
     createAccountLink: 'Create Farmer Account',

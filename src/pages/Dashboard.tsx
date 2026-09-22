@@ -71,8 +71,8 @@ export const Dashboard = () => {
   const [newFarmAcres, setNewFarmAcres] = useState('2.5');
   const [newFarmOwnership, setNewFarmOwnership] = useState<'Owned' | 'Leased'>('Owned');
 
-  const farmerName = user?.name || farmProfile.farmerName || 'Ramesh Patil';
-  const farmerDistrict = farmProfile.district || (user?.district === 'Pune' ? 'Pune' : 'Nashik');
+  const farmerName = user?.name || farmProfile.farmerName || 'Sushant Sondkar';
+  const farmerDistrict = user?.district || farmProfile.district || 'Ahmednagar';
 
   // Time-aware greeting
   const getGreeting = () => {
@@ -528,7 +528,7 @@ export const Dashboard = () => {
       {/* 6. TODAY'S WEATHER & CRITICAL ALERTS ROW (2-COLUMN GRID) */}
       <section className="dash-row-grid-2">
         {/* TODAY'S WEATHER CARD */}
-        <div className="dash-card">
+        <div className="dash-card dash-weather-card">
           <div className="card-header-flex">
             <div className="card-title-wrap">
               <Sun size={24} color="#f57f17" />
