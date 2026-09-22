@@ -1,0 +1,317 @@
+/* Floating Voice Button */
+.floating-voice-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(27, 94, 32, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 990;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ffffff;
+}
+
+.floating-voice-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(27, 94, 32, 0.45);
+}
+
+.floating-voice-btn.active {
+  background: #c62828;
+}
+
+.voice-btn-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Modal Overlay & Card */
+.voice-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.voice-modal-card {
+  width: 100%;
+  max-width: 480px;
+  height: 580px;
+  max-height: 90vh;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.voice-modal-header {
+  padding: 1.15rem 1.25rem;
+  background: #f4f9f4;
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vm-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vm-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-title-wrap h3 {
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin: 0 0 2px 0;
+  font-weight: 800;
+}
+
+.vm-title-wrap p {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.vm-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.vm-close-btn:hover {
+  background: #e8f5e9;
+  color: var(--color-primary);
+}
+
+/* Chat Messages */
+.voice-messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: #fafdfa;
+}
+
+.voice-msg-row {
+  display: flex;
+  width: 100%;
+}
+
+.voice-msg-row.user {
+  justify-content: flex-end;
+}
+
+.voice-msg-row.assistant {
+  justify-content: flex-start;
+}
+
+.voice-msg-bubble {
+  max-width: 85%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.voice-msg-bubble.user {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.voice-msg-bubble.assistant {
+  background: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid #d8e6d8;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.voice-msg-bubble p {
+  margin: 0;
+}
+
+.msg-timestamp {
+  display: block;
+  font-size: 0.68rem;
+  margin-top: 4px;
+  opacity: 0.75;
+  text-align: right;
+}
+
+/* Sample Quick Questions */
+.sample-questions-wrap {
+  padding: 0.6rem 1rem;
+  background: #ffffff;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.sample-hdr {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.sample-chips-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.sample-chip-btn {
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: #f4f9f4;
+  border: 1px solid #c8e6c9;
+  color: #1b5e20;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.sample-chip-btn:hover {
+  background: #e8f5e9;
+  border-color: #2e7d32;
+}
+
+/* Input Bar */
+.voice-input-bar {
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mic-record-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.mic-record-btn:hover {
+  background: var(--color-primary-light);
+  transform: scale(1.05);
+}
+
+.mic-record-btn.listening {
+  background: #c62828;
+  animation: pulseMic 1.2s infinite;
+}
+
+@keyframes pulseMic {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 40, 40, 0.4); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(198, 40, 40, 0); }
+  100% { transform: scale(1); }
+}
+
+.voice-input-bar input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background: #f4f9f4;
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  outline: none;
+}
+
+.voice-input-bar input:focus {
+  background: #ffffff;
+  border-color: var(--color-primary-light);
+}
+
+.send-msg-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  color: #1b5e20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.send-msg-btn:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.send-msg-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .floating-voice-btn {
+    bottom: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .voice-modal-card {
+    height: 90vh;
+    border-radius: 16px;
+  }
+}

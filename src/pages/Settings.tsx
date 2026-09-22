@@ -17,15 +17,15 @@ export const Settings = () => {
   };
 
   return (
-    <div className="page-container animate-fade-in" style={{ padding: '1.5rem', maxWidth: '1000px', margin: '0 auto' }}>
-      <div className="page-header" style={{ marginBottom: '1.5rem' }}>
-        <h1 style={{ fontSize: '1.85rem', color: 'var(--color-primary)', fontWeight: 800 }}>{t('settings.title')}</h1>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('settings.subtitle')}</p>
+    <div className="settings-page-container animate-fade-in">
+      <div className="settings-page-header">
+        <h1>{t('settings.title')}</h1>
+        <p>{t('settings.subtitle')}</p>
       </div>
 
-      <div className="settings-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      <div className="settings-grid">
         {/* Language & Region Preferences Section */}
-        <div className="glass-panel settings-card" style={{ background: '#ffffff', padding: '1.75rem', borderRadius: '16px', border: '1px solid #d8e6d8' }}>
+        <div className="glass-panel settings-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.5rem' }}>
             <Globe size={24} color="#1b5e20" />
             <h2 style={{ fontSize: '1.3rem', color: 'var(--color-primary)', margin: 0 }}>{t('settings.langSectionTitle')}</h2>

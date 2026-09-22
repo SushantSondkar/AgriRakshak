@@ -22,6 +22,9 @@ export const en = {
   },
   nav: {
     dashboard: 'Dashboard',
+    myFarm: 'My Farm',
+    riskMap: 'Risk Map',
+    officerPortal: 'Officer Portal',
     cropDoctor: 'Crop Doctor',
     govtSchemes: 'Govt Schemes',
     alerts: 'Alerts & Advisory',

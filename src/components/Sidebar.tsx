@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, BellRing, TrendingUp, Users, Settings, LogOut, Sprout, ShieldCheck, Stethoscope, User, Landmark } from 'lucide-react';
+import { LayoutDashboard, BellRing, TrendingUp, Users, Settings, LogOut, Sprout, ShieldCheck, Stethoscope, User, Landmark, Map, Compass, UserCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import './Sidebar.css';
@@ -38,9 +38,21 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             <LayoutDashboard size={20} />
             <span>{t('nav.dashboard')}</span>
           </NavLink>
+          <NavLink to="/my-farm" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={handleNavClick}>
+            <Compass size={20} />
+            <span>{t('nav.myFarm', 'My Farm')}</span>
+          </NavLink>
+          <NavLink to="/risk-map" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={handleNavClick}>
+            <Map size={20} />
+            <span>{t('nav.riskMap', 'Risk Map')}</span>
+          </NavLink>
           <NavLink to="/crop-doctor" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={handleNavClick}>
             <Stethoscope size={20} />
             <span>{t('nav.cropDoctor')}</span>
+          </NavLink>
+          <NavLink to="/officer-portal" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={handleNavClick}>
+            <UserCheck size={20} />
+            <span>{t('nav.officerPortal', 'Officer Portal')}</span>
           </NavLink>
           <NavLink to="/schemes" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={handleNavClick}>
             <Landmark size={20} />

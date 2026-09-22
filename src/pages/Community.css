@@ -617,33 +617,126 @@
 }
 
 @media (max-width: 900px) {
-  .community-container {
-    padding: 0.75rem;
-    gap: 1rem;
-  }
-
   .community-layout-grid {
     grid-template-columns: 1fr;
   }
-  
-  .community-header-banner {
+}
+
+@media (max-width: 768px) {
+  .community-container {
+    padding: 0.5rem 0.25rem;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .community-header-card {
+    padding: 1.15rem 1rem;
+    gap: 1rem;
+  }
+
+  .header-top-row {
     flex-direction: column;
     align-items: stretch;
-    padding: 1.25rem 1rem;
+    gap: 0.85rem;
   }
 
-  .btn-create-post-header {
+  .title-block {
+    gap: 0.75rem;
+  }
+
+  .community-icon-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .title-block h1 {
+    font-size: 1.45rem;
+  }
+
+  .title-block p {
+    font-size: 0.85rem;
+  }
+
+  .btn-ask-community {
     width: 100%;
     justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
   }
 
-  .post-card {
+  .stats-pills-row {
+    gap: 0.5rem;
+  }
+
+  .stat-pill {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .category-scroll-bar {
+    padding-bottom: 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .category-chip {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .community-controls-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
     padding: 1rem;
+  }
+
+  .comm-search-box {
+    width: 100%;
+  }
+
+  .comm-sort-dropdown {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .comm-sort-dropdown select {
+    width: 100%;
+  }
+
+  .post-item-card {
+    padding: 1.15rem 1rem;
+  }
+
+  .post-title-text {
+    font-size: 1.05rem;
+  }
+
+  .post-image-container {
+    max-height: 220px;
+  }
+
+  .post-image-container img {
+    height: 200px;
   }
 
   .post-bottom-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0.75rem;
+  }
+
+  .post-stats {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .post-action-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-post-action {
+    flex: 1;
+    justify-content: center;
   }
 }

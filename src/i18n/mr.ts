@@ -24,6 +24,9 @@ export const mr: typeof en = {
   },
   nav: {
     dashboard: 'डॅशबोर्ड',
+    myFarm: 'माझी शेती',
+    riskMap: 'जोखीम नकाशा',
+    officerPortal: 'कृषी अधिकारी पोर्टल',
     cropDoctor: 'क्रॉप डॉक्टर',
     govtSchemes: 'शासकीय योजना',
     alerts: 'सूचना व सल्ला',

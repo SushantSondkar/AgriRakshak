@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Outlet, Navigate, useLocation } from 'react-router-dom';
+import { Outlet, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
 import { NotificationBell } from '../components/NotificationBell';
 import { LanguageSelector } from '../components/LanguageSelector';
+import { DataStatusBadge } from '../components/DataStatusBadge';
+import { VoiceAssistant } from '../components/VoiceAssistant';
 import { useAuth } from '../context/AuthContext';
 import { Sprout, Menu, X } from 'lucide-react';
 import './MainLayout.css';
@@ -10,6 +12,7 @@ import './MainLayout.css';
 export const MainLayout = () => {
   const { user, loading } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   if (loading) {
@@ -29,6 +32,9 @@ export const MainLayout = () => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
+  const farmerName = user?.name || 'Ramesh Patil';
+  const farmerDistrict = user?.district || 'Kopargaon';
+
   return (
     <div className="main-layout">
       <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
@@ -46,15 +52,31 @@ export const MainLayout = () => {
               <Sprout size={20} color="#1b5e20" />
               <span>AgriRakshak</span>
             </div>
+            <div className="topbar-status-wrapper">
+              <DataStatusBadge />
+            </div>
           </div>
           <div className="topbar-right">
             <LanguageSelector />
             <NotificationBell />
+            <div 
+              className="topbar-user-badge" 
+              onClick={() => navigate('/profile')}
+              title="View Profile / प्रोफाइल पहा"
+            >
+              <div className="topbar-user-avatar">{farmerName.charAt(0)}</div>
+              <div className="topbar-user-meta">
+                <span className="topbar-user-name">{farmerName}</span>
+                <span className="topbar-user-sub">{farmerDistrict} • {user?.role || 'Farmer'}</span>
+              </div>
+            </div>
           </div>
         </header>
         <main className="main-content">
           <Outlet />
         </main>
+        {/* Floating AI Multilingual Voice Assistant */}
+        <VoiceAssistant />
       </div>
     </div>
   );

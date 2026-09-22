@@ -874,15 +874,28 @@
 
 @media (max-width: 768px) {
   .alerts-page {
-    padding: 0.75rem;
+    padding: 0.5rem 0.25rem;
     gap: 1rem;
+    width: 100%;
   }
 
   .alerts-header-card {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 1.15rem 1rem;
     gap: 1rem;
-    padding: 1.25rem 1rem;
+  }
+
+  .header-top-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .alerts-header-card h1 {
+    font-size: 1.45rem;
+  }
+
+  .alerts-header-card .subtitle {
+    font-size: 0.88rem;
   }
 
   .header-actions {
@@ -890,39 +903,80 @@
     justify-content: space-between;
   }
 
-  .alerts-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    display: grid;
-    gap: 0.75rem;
+  .alerts-telemetry-row {
+    gap: 6px;
+  }
+
+  .telemetry-chip {
+    padding: 4px 10px;
+    font-size: 0.75rem;
   }
 
   .alerts-toolbar {
     padding: 1rem 0.85rem;
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
-  .controls-row {
-    flex-direction: column;
-    align-items: stretch;
+  .search-bar-wrap {
+    min-width: unset;
+    width: 100%;
   }
 
-  .category-filter-bar {
+  .sort-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+
+  .category-scroll-bar {
+    padding-bottom: 0.5rem;
+  }
+
+  .cat-filter-chip {
+    padding: 5px 12px;
+    font-size: 0.78rem;
+  }
+
+  .critical-alerts-grid,
+  .alerts-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .alert-card-item {
+    padding: 1.15rem 1rem;
+  }
+
+  .card-top {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .alert-card {
-    padding: 1rem;
-  }
-
-  .alert-card-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .card-bottom {
+    flex-wrap: wrap;
     gap: 0.75rem;
   }
 
   .card-btn-group {
     width: 100%;
     justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .drawer-header {
+    padding: 1rem;
+  }
+
+  .drawer-body {
+    padding: 1rem;
+  }
+
+  .detail-meta-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -163,8 +163,8 @@ a:hover {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-surface-light);
@@ -185,4 +185,42 @@ a:hover {
 
 .animate-fade-in {
   animation: fadeIn var(--transition-normal) forwards;
+}
+
+/* Global Mobile Responsiveness Safeguards */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 1.6rem !important;
+  }
+
+  h2 {
+    font-size: 1.3rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  /* Modal responsive safeguard */
+  .modal-overlay {
+    padding: 0.75rem !important;
+  }
+
+  .modal-box, .modal-content, .drawer-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 90vh !important;
+    padding: 1.25rem 1rem !important;
+    margin: 0 !important;
+  }
 }

@@ -4,10 +4,10 @@ import type { Language } from '../i18n/types';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 import './LanguageSelector.css';
 
-const LANGUAGES: { code: Language; name: string; flag: string }[] = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'mr', name: 'मराठी', flag: '🇮🇳' },
-  { code: 'hi', name: 'हिंदी', flag: '🇮🇳' }
+const LANGUAGES: { code: Language; name: string }[] = [
+  { code: 'en', name: 'English' },
+  { code: 'mr', name: 'मराठी' },
+  { code: 'hi', name: 'हिंदी' }
 ];
 
 export const LanguageSelector = () => {
@@ -40,14 +40,14 @@ export const LanguageSelector = () => {
         title="Change UI Language / भाषा बदला"
       >
         <Globe size={16} className="globe-icon" />
-        <span className="lang-code-label">{currentOption.flag} {currentOption.name}</span>
+        <span className="lang-code-label">{currentOption.name}</span>
         <ChevronDown size={14} className={`chevron-icon ${isOpen ? 'open' : ''}`} />
       </button>
 
       {isOpen && (
         <div className="lang-dropdown-menu glass-panel animate-fade-in">
           <div className="menu-header">
-            <span>🌐 Select Language / भाषा निवडा</span>
+            <span>Select Language / भाषा निवडा</span>
           </div>
           <div className="menu-options">
             {LANGUAGES.map((item) => (
@@ -56,7 +56,6 @@ export const LanguageSelector = () => {
                 className={`lang-option-btn ${language === item.code ? 'selected' : ''}`}
                 onClick={() => handleSelect(item.code)}
               >
-                <span className="flag">{item.flag}</span>
                 <span className="name">{item.name}</span>
                 {language === item.code && <Check size={16} className="check-icon" />}
               </button>

@@ -1,0 +1,344 @@
+.my-farm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.my-farm-header {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mf-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.mf-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.my-farm-header h1 {
+  font-size: 1.85rem;
+  color: var(--color-primary);
+  font-weight: 800;
+  margin: 0 0 0.25rem 0;
+  font-family: var(--font-heading);
+}
+
+.my-farm-header p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 650px;
+}
+
+.mf-impact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  color: #1b5e20;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.save-success-banner {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: #1b5e20;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.my-farm-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1.5rem;
+}
+
+.farm-form-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.card-sec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.card-sec-header h3 {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 800;
+  margin: 0;
+}
+
+.badge-kisan {
+  background: #f4f9f4;
+  border: 1px solid #c8e6c9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.farm-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.mf-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mf-input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inp-icon {
+  position: absolute;
+  left: 12px;
+  color: #888;
+  pointer-events: none;
+}
+
+.farm-edit-form input,
+.farm-edit-form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: #f4f9f4;
+  color: var(--color-text-main);
+  font-size: 0.92rem;
+  font-weight: 600;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.input-with-icon input {
+  padding-left: 2.3rem;
+}
+
+.farm-edit-form input:focus,
+.farm-edit-form select:focus {
+  border-color: var(--color-primary-light);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+}
+
+.btn-save-farm {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(27, 94, 32, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-save-farm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(27, 94, 32, 0.35);
+}
+
+/* Right Status Preview Card */
+.preview-status-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.psc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: 0.75rem;
+}
+
+.psc-header h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.psc-tag {
+  background: #e8f5e9;
+  color: #1b5e20;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.psc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.psc-metric-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e8eee8;
+}
+
+.psc-label {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.psc-val {
+  color: var(--color-text-main);
+  font-weight: 700;
+}
+
+.psc-decision-box {
+  background: #fbfdfb;
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pdb-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.pdb-verdict {
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+}
+
+.pdb-reason {
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.psc-tip {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  background: #f4f9f4;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .my-farm-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-farm-container {
+    padding: 0.5rem 0.25rem;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .my-farm-header {
+    padding: 1.25rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row-2, .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .farm-form-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .btn-save-farm {
+    width: 100%;
+  }
+}

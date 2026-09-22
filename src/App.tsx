@@ -17,6 +17,9 @@ import { Settings } from './pages/Settings';
 import { CropDoctor } from './pages/CropDoctor';
 import { CropDoctorHistory } from './pages/CropDoctorHistory';
 import { AdminCropDoctor } from './pages/AdminCropDoctor';
+import { MyFarm } from './pages/MyFarm';
+import { RiskMap } from './pages/RiskMap';
+import { OfficerPortal } from './pages/OfficerPortal';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
             
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="my-farm" element={<MyFarm />} />
+              <Route path="risk-map" element={<RiskMap />} />
+              <Route path="officer-portal" element={<OfficerPortal />} />
               <Route path="crop-doctor" element={<CropDoctor />} />
               <Route path="crop-doctor/history" element={<CropDoctorHistory />} />
               <Route path="admin/crop-doctor" element={<AdminCropDoctor />} />

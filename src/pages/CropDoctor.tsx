@@ -21,7 +21,62 @@ import type { CropDiagnosis, GrowthStage } from '../types/cropDoctor';
 import { useLanguage } from '../i18n/LanguageContext';
 import './CropDoctor.css';
 
-const CROPS_LIST = ['Tomato', 'Cotton', 'Soybean', 'Onion', 'Grapes', 'Wheat', 'Rice', 'Other'];
+const CROPS_LIST = [
+  'Tomato',
+  'Soybean',
+  'Cotton',
+  'Onion',
+  'Grapes',
+  'Pomegranate',
+  'Sugarcane',
+  'Wheat',
+  'Rice',
+  'Maize',
+  'Chilli',
+  'Potato',
+  'Groundnut',
+  'Ginger'
+];
+
+const SAMPLE_IMAGES = [
+  {
+    name: 'Tomato (Early Blight)',
+    crop: 'Tomato',
+    url: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb22515?w=500&auto=format&fit=crop',
+    symptoms: 'Brown concentric spots on lower leaves'
+  },
+  {
+    name: 'Soybean (Leaf Rust / Stress)',
+    crop: 'Soybean',
+    url: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=500&auto=format&fit=crop',
+    symptoms: 'Yellow chlorotic spots after rain'
+  },
+  {
+    name: 'Cotton (Bacterial Blight)',
+    crop: 'Cotton',
+    url: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=500&auto=format&fit=crop',
+    symptoms: 'Angular vein-delimited water soaked spots'
+  },
+  {
+    name: 'Onion (Purple Blotch)',
+    crop: 'Onion',
+    url: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&auto=format&fit=crop',
+    symptoms: 'Purplish lesions on foliage'
+  },
+  {
+    name: 'Grapes (Powdery Mildew)',
+    crop: 'Grapes',
+    url: 'https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=500&auto=format&fit=crop',
+    symptoms: 'White powdery patches on leaves'
+  },
+  {
+    name: 'Healthy Crop Sample',
+    crop: 'Tomato',
+    url: 'https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=500&auto=format&fit=crop',
+    symptoms: 'Vibrant green canopy, zero lesions'
+  }
+];
+
 const GROWTH_STAGES: GrowthStage[] = ['Seedling', 'Vegetative', 'Flowering', 'Fruiting', 'Harvest'];
 
 export const CropDoctor = () => {
@@ -37,6 +92,7 @@ export const CropDoctor = () => {
   const [step, setStep] = useState<number>(1);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [showSupportedModal, setShowSupportedModal] = useState<boolean>(false);
 
   // Form Fields
   const [crop, setCrop] = useState<string>('Tomato');
@@ -92,6 +148,15 @@ export const CropDoctor = () => {
     }
   };
 
+  // Handle Sample Select
+  const handleSelectSample = (sample: typeof SAMPLE_IMAGES[0]) => {
+    setErrorMsg(null);
+    setSelectedFile(null);
+    setImagePreview(sample.url);
+    setCrop(sample.crop);
+    setSymptomsObserved(sample.symptoms);
+  };
+
   // Handle Retake / Clear
   const handleRetake = () => {
     setSelectedFile(null);
@@ -104,7 +169,7 @@ export const CropDoctor = () => {
   // Start AI Analysis Pipeline
   const handleStartAnalysis = async () => {
     if (!imagePreview && !selectedFile) {
-      setErrorMsg('Please upload a crop image before analyzing.');
+      setErrorMsg('Please upload a crop image or select a sample before analyzing.');
       return;
     }
 
@@ -238,6 +303,27 @@ export const CropDoctor = () => {
                     <input type="file" accept="image/jpeg,image/jpg,image/png,image/webp" onChange={handleFileChange} hidden />
                   </label>
                 </div>
+
+                {/* Sample Images Section for Hackathon Demo */}
+                <div className="sample-images-section">
+                  <div className="sample-img-title">
+                    <Sparkles size={14} color="#1b5e20" />
+                    <span>Or Test with Sample Field Images (1-Click Demo):</span>
+                  </div>
+                  <div className="sample-images-grid">
+                    {SAMPLE_IMAGES.map((s, idx) => (
+                      <button 
+                        key={idx} 
+                        type="button"
+                        className="sample-img-card"
+                        onClick={() => handleSelectSample(s)}
+                      >
+                        <img src={s.url} alt={s.name} />
+                        <span className="sic-name">{s.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="preview-container">
@@ -254,6 +340,23 @@ export const CropDoctor = () => {
                 </div>
               </div>
             )}
+
+            {/* Supported Species Badge & Disclaimer */}
+            <div className="supported-crops-banner">
+              <div className="scb-left">
+                <span className="scb-badge">14 Supported Species</span>
+                <p className="scb-text">
+                  ⚠️ <em>This AI model is trained for supported crops only. It does not diagnose unsupported species.</em>
+                </p>
+              </div>
+              <button 
+                type="button" 
+                className="btn-view-supported"
+                onClick={() => setShowSupportedModal(true)}
+              >
+                View List
+              </button>
+            </div>
 
             {/* Quality Checklist */}
             <div className="quality-checklist">
@@ -583,7 +686,58 @@ export const CropDoctor = () => {
         </div>
       )}
 
-      {/* Expert Review Modal */}
+          {/* Recommended Next Actions Card (Req #6) */}
+          <div className="cd-card next-actions-card">
+            <div className="nac-header">
+              <ShieldAlert size={22} color="#1b5e20" />
+              <h3>Recommended Next Actions / पुढील उपाययोजना</h3>
+            </div>
+
+            <div className="action-steps-timeline">
+              <div className="action-step-item">
+                <span className="asi-num">1</span>
+                <div>
+                  <strong>1. Monitor Affected Leaves</strong>
+                  <p>Inspect adjacent canopy rows twice weekly for early spot or rust propagation.</p>
+                </div>
+              </div>
+
+              <div className="action-step-item">
+                <span className="asi-num">2</span>
+                <div>
+                  <strong>2. Check Soil Moisture & Adjust Irrigation</strong>
+                  <p>Avoid evening over-watering to prevent leaf wetness duration exceeding 4 hours.</p>
+                </div>
+              </div>
+
+              <div className="action-step-item">
+                <span className="asi-num">3</span>
+                <div>
+                  <strong>3. Follow Recommended Scientific Treatment</strong>
+                  <p>Apply certified bio-fungicides or approved protection products listed below.</p>
+                </div>
+              </div>
+
+              <div className="action-step-item highlight">
+                <span className="asi-num">4</span>
+                <div className="asi-right">
+                  <div>
+                    <strong>4. Contact Agriculture Officer If Symptoms Worsen</strong>
+                    <p>Escalate to Taluka Agriculture Officer or KVK Niphad / Baramati specialists directly.</p>
+                  </div>
+                  <button 
+                    type="button" 
+                    className="btn-escalate-officer"
+                    onClick={() => navigate('/officer-portal')}
+                  >
+                    Ask Officer →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Expert Review Modal */}
       {showExpertModal && (
         <div className="modal-overlay">
           <div className="modal-box glass-panel animate-fade-in">
@@ -616,6 +770,43 @@ export const CropDoctor = () => {
                 </div>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Supported Crops Modal */}
+      {showSupportedModal && (
+        <div className="modal-overlay" onClick={() => setShowSupportedModal(false)}>
+          <div className="modal-box supported-crops-modal glass-panel animate-fade-in" onClick={e => e.stopPropagation()}>
+            <div className="scm-header">
+              <div>
+                <h3>14 AI-Supported Crop Species</h3>
+                <span className="scm-sub">Trained for Pune and Nashik Agricultural Zones</span>
+              </div>
+              <button className="modal-close-btn" onClick={() => setShowSupportedModal(false)}>×</button>
+            </div>
+
+            <div className="scm-disclaimer">
+              <AlertTriangle size={18} color="#b45309" />
+              <p>
+                <strong>Important Notice:</strong> This computer vision model is strictly calibrated for these 14 supported species. It will not diagnose unsupported crops to prevent false guidance.
+              </p>
+            </div>
+
+            <div className="supported-crops-chip-grid">
+              {CROPS_LIST.map((c, i) => (
+                <div key={i} className="supported-chip-item">
+                  <span className="sci-num">{i + 1}</span>
+                  <span className="sci-name">🌿 {c}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="modal-actions">
+              <button className="btn-primary-action" onClick={() => setShowSupportedModal(false)}>
+                Got It / समजले
+              </button>
+            </div>
           </div>
         </div>
       )}
